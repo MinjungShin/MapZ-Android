@@ -20,11 +20,10 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
         binding.viewmodel = myPageViewModel
 
         initButton()
-        myPageViewModel.countUp()
     }
 
     private fun initButton() {
-        binding.btnMyPageSignOut.setOnClickListener {
+        binding.tvMyPageSignOut.setOnClickListener {
             myPageViewModel.requestSignOut()
             val intent = Intent(requireActivity(), SignActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)

@@ -11,24 +11,204 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
+        android:id="@+id/sv_my_page"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.mypage.MyPageFragment">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn_my_page_sign_out"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/my_page_sign_out"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/container_my_page_scroll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{@string/format_my_page_count(viewmodel.count)}" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_my_page_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_bottom_radius_20dp"
+                android:backgroundTint="@color/map_z_red_500"
+                android:paddingBottom="@dimen/space_large"
+                tools:context=".ui.mypage.MyPageFragment">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_my_page_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_max_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_my_page_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_large"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_x_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_my_page_profile"
+                    tools:text="사용자 닉네임" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btn_my_page_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_xx_large"
+                    android:drawablePadding="@dimen/my_page_button_padding"
+                    android:text="@string/notification"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_median"
+                    app:drawableTopCompat="@drawable/ic_notification"
+                    app:layout_constraintEnd_toStartOf="@id/btn_my_page_like"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_my_page_nickname" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btn_my_page_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/my_page_button_padding"
+                    android:text="@string/like"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_median"
+                    app:drawableTopCompat="@drawable/ic_like"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/btn_my_page_notification" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btn_my_page_diary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/my_page_button_padding"
+                    android:text="@string/my_page_diary"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_median"
+                    app:drawableTopCompat="@drawable/ic_diary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_my_page_like"
+                    app:layout_constraintTop_toTopOf="@id/btn_my_page_notification" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_my_page_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_s_large"
+                    android:layout_marginTop="@dimen/space_large"
+                    android:drawableStart="@drawable/ic_setting"
+                    android:drawablePadding="@dimen/my_page_sub_title_padding"
+                    android:text="@string/setting"
+                    android:textSize="@dimen/text_s_large"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_my_page_profile_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_small"
+                    android:text="@string/my_page_profile_change"
+                    android:textSize="@dimen/text_median"
+                    app:layout_constraintStart_toStartOf="@id/tv_my_page_setting"
+                    app:layout_constraintTop_toBottomOf="@id/tv_my_page_setting" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_my_page_agreement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_small"
+                    android:text="@string/my_page_agreement"
+                    android:textSize="@dimen/text_median"
+                    app:layout_constraintStart_toStartOf="@id/tv_my_page_setting"
+                    app:layout_constraintTop_toBottomOf="@id/tv_my_page_profile_change" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_my_page_sign_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_small"
+                    android:text="@string/my_page_sign_out"
+                    android:textSize="@dimen/text_median"
+                    app:layout_constraintStart_toStartOf="@id/tv_my_page_setting"
+                    app:layout_constraintTop_toBottomOf="@id/tv_my_page_agreement" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_my_page_withdraw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_small"
+                    android:text="@string/my_page_withdraw"
+                    android:textSize="@dimen/text_median"
+                    app:layout_constraintStart_toStartOf="@id/tv_my_page_setting"
+                    app:layout_constraintTop_toBottomOf="@id/tv_my_page_sign_out" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_my_page_guide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_x_large"
+                    android:drawableStart="@drawable/ic_book_saved"
+                    android:drawablePadding="@dimen/my_page_sub_title_padding"
+                    android:text="@string/my_page_guide"
+                    android:textSize="@dimen/text_s_large"
+                    app:layout_constraintStart_toStartOf="@id/tv_my_page_setting"
+                    app:layout_constraintTop_toBottomOf="@id/tv_my_page_withdraw" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_my_page_app_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_small"
+                    android:text="@string/my_page_app_version"
+                    android:textSize="@dimen/text_median"
+                    app:layout_constraintStart_toStartOf="@id/tv_my_page_setting"
+                    app:layout_constraintTop_toBottomOf="@id/tv_my_page_guide" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_my_page_ask"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_small"
+                    android:text="@string/my_page_ask"
+                    android:textSize="@dimen/text_median"
+                    app:layout_constraintStart_toStartOf="@id/tv_my_page_setting"
+                    app:layout_constraintTop_toBottomOf="@id/tv_my_page_app_version" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_my_page_notice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_small"
+                    android:text="@string/my_page_notice"
+                    android:textSize="@dimen/text_median"
+                    app:layout_constraintStart_toStartOf="@id/tv_my_page_setting"
+                    app:layout_constraintTop_toBottomOf="@id/tv_my_page_ask" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_my_page_personal_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_small"
+                    android:text="@string/my_page_personal_info"
+                    android:textSize="@dimen/text_median"
+                    app:layout_constraintStart_toStartOf="@id/tv_my_page_setting"
+                    app:layout_constraintTop_toBottomOf="@id/tv_my_page_notice" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
 
 </layout>

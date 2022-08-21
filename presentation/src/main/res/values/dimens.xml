@@ -35,11 +35,14 @@
     <dimen name="sign_up_profile_bottom">140dp</dimen>
     <dimen name="sign_up_agree_btn">14dp</dimen>
     <dimen name="sign_up_agree_divider">1.5dp</dimen>
-    
+
     <dimen name="write_margin_top">76dp</dimen>
     <dimen name="write_title_text_size">20sp</dimen>
     <dimen name="write_group_member_image_size">23dp</dimen>
     <dimen name="write_group_members_margin">10dp</dimen>
     <dimen name="gallery_button_margin_top">100dp</dimen>
     <dimen name="default_elevation">4dp</dimen>
+
+    <dimen name="my_page_button_padding">10dp</dimen>
+    <dimen name="my_page_sub_title_padding">15dp</dimen>
 </resources>
